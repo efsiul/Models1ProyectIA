@@ -2,5 +2,5 @@
 Proyect for curse Model 1
 ---
 
-##**Student:**
+## **Student:**
 * Luis Felipe Cadavid Chica  CC: 98711955
