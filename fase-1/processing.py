@@ -9,7 +9,7 @@ from sklearn.compose          import ColumnTransformer
 from sklearn.preprocessing    import StandardScaler
 from sklearn.ensemble         import GradientBoostingRegressor
 
-kp                          = pd.read_csv('./Data/uber.csv')
+kp                          = pd.read_csv('./data/uber.csv')
 dframe                      = kp.copy()
 
 df                          = dframe.drop(['Unnamed: 0'],axis=1)
@@ -213,14 +213,19 @@ pd.DataFrame(data=vif_dic)
 
 #CONSTRUCCIÓN MODELO
 
+# #Generando un dataset para entrenar el modelo dentro del contenedor
+df_uber_rel.to_csv('../fase-2/data/uber_train.csv', index=False)
+
+
 X                       = df_uber_rel.drop('fare_amount', axis = 1)
 X                       = X.drop('Quarter', axis = 1)
 y                       = df_uber_rel['fare_amount']
 
+
 #Generando un nuevo dataset de prueba
-df_test = X.sample(frac=0.1, random_state=42)
-df_test.to_csv('./Data/uber_test.csv', index=False)
-df_uber_rel.to_csv('./Data/uber_train.csv', index=False)
+df_test                 = X.sample(frac=0.1, random_state=42)
+df_test.to_csv('../fase-2/data/uber_test.csv', index=False)
+
 
 
 #Haciendo transformación numerica
@@ -248,5 +253,5 @@ print('Testing Score: ' , grad_reg.score(X_test_preprocessed, y_test))
 
 
 #SAVE MODEL
-pickle.dump(preprocessor,   open('preprocessor.pkl', 'wb'))
-pickle.dump(grad_reg,       open('model.pkl', 'wb'))
+pickle.dump(preprocessor,   open('../fase-2/models/preprocessor.pkl', 'wb'))
+pickle.dump(grad_reg,       open('../fase-2/models/model.pkl', 'wb'))

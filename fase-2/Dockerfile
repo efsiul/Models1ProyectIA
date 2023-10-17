@@ -27,6 +27,6 @@ EXPOSE 8080
 
 
 # Después de ejecutar train.py, ejecuta predict.py
-CMD ["python", "train.py"]
+CMD ["python", "train.py"] and ["python",  "predict.py"]
 
-CMD ["python",  "predict.py"]
+

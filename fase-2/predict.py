@@ -44,7 +44,7 @@ if not os.path.isfile(input_file):
 
 logger.info("loading input data")
 Xts = pd.read_csv(input_file).iloc[:,:]
-print(Xts)
+
 
 # Cargar el preprocesador y el modelo previamente entrenado
 preprocessor    = pickle.load(open(preprocessor_file, 'rb'))
@@ -63,3 +63,4 @@ for prediction in predictions:
     
 logger.info(f"saving predictions to {predictions_file}")
 pd.DataFrame(predictions.reshape(-1,1), columns=['preds']).to_csv(predictions_file, index=False)
+
