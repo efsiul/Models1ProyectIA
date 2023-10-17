@@ -39,8 +39,8 @@ Requirements.txt: File that contains all the libraries that will be used in the 
 
 Open a terminal in the main project directory (fase-2) and run the following commands:
 
-* docker build -t model_fare_amount . \
-* docker run -v $(pwd)/models:/app/models -v $(pwd)/data:/app/data model_fare_amount \
+* docker build -t model_fare_amount .
+* docker run -v $(pwd)/models:/app/models -v $(pwd)/data:/app/data model_fare_amount
 
 Please note that the file located in data, which will be used to train the model, must have the following characteristics:
 
