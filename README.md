@@ -1,8 +1,22 @@
-# **Uber Fares Prediction**
+# **ModelsSimulation1ProyectIA**
 
-for
+## Proyect for curse Model 1
 
-### Luis Felipe Cadavid Ch
+---
+
+## **Uber Fares Prediction**
+
+## **Student:**
+
+* Luis Felipe Cadavid Chica  CC: 98711955
+
+## **Dataset:**
+
+Uber Fares Dataset
+<https://www.kaggle.com/datasets/yasserh/uber-fares-dataset>
+
+I based myself on the model built by Anjali Singh (anjali1510)
+<https://www.kaggle.com/code/anjali1510/uber-fare-prediction>
 
 ## Phase 1
 
@@ -74,4 +88,3 @@ Please note that the file located in data, which will be used to train the model
     2013            : 5,
     2014            : 6,
     2015            : 7.
-    
