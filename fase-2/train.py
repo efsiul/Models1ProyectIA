@@ -1,7 +1,6 @@
 import argparse
 import pickle
 import pandas as pd
-import os
 from loguru                     import logger
 from sklearn.ensemble           import GradientBoostingRegressor
 from sklearn.compose            import ColumnTransformer
@@ -9,8 +8,27 @@ from sklearn.preprocessing      import StandardScaler
 from sklearn.pipeline           import Pipeline
 from sklearn.model_selection    import train_test_split
 
+
+# Definir los valores por defecto para los argumentos
+DEFAULT_DATA_FILE           = 'data/uber_train.csv'
+DEFAULT_PREPROCESSOR_FILE   = 'models/preprocessor.pkl'
+DEFAULT_MODEL_FILE          = 'models/model.pkl'
+
+
+parser                      = argparse.ArgumentParser()
+parser.add_argument('--data_file',          type=str, default=DEFAULT_DATA_FILE,            help='a csv file with train data')
+parser.add_argument('--preprocessor_file',  type=str, default=DEFAULT_PREPROCESSOR_FILE,    help='where the preprocessor will be stored')
+parser.add_argument('--model_file',         type=str, default=DEFAULT_MODEL_FILE,           help='where the trained model will be stored')
+
+args                        = parser.parse_args()
+
+data_file                   = args.data_file
+preprocessor_file           = args.preprocessor_file
+model_file                  = args.model_file
+
+
 # Cargar los datos de entrenamiento desde un archivo CSV
-df_uber_rel                         = pd.read_csv('data/uber_train.csv')
+df_uber_rel                 = pd.read_csv(data_file)
 
 # Construir el modelo y realizar el entrenamiento
 X                                   = df_uber_rel.drop('fare_amount', axis=1)
@@ -32,8 +50,8 @@ grad_reg                            = GradientBoostingRegressor(n_estimators=200
 grad_reg.fit(X_train_preprocessed, y_train)
 
 # Guardar el modelo entrenado y el preprocesador
-with open('preprocessor.pkl', 'wb') as preprocessor_file:
+with open(preprocessor_file, 'wb') as preprocessor_file:
     pickle.dump(preprocessor, preprocessor_file)
 
-with open('model.pkl', 'wb') as model_file:
+with open(model_file, 'wb') as model_file:
     pickle.dump(grad_reg, model_file)

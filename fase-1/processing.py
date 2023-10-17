@@ -220,7 +220,7 @@ y                       = df_uber_rel['fare_amount']
 #Generando un nuevo dataset de prueba
 df_test = X.sample(frac=0.1, random_state=42)
 df_test.to_csv('./Data/uber_test.csv', index=False)
-X.to_csv('./Data/uber_train.csv', index=False)
+df_uber_rel.to_csv('./Data/uber_train.csv', index=False)
 
 
 #Haciendo transformación numerica

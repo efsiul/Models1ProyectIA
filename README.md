@@ -23,7 +23,55 @@ Requirements.txt: File that contains all the libraries that will be used in the 
 
 ### How to run the container
 
-Open a terminal in the main project directory and run the following commands:
+Open a terminal in the main project directory (fase-2) and run the following commands:
 
 docker build -t model_fare_amount . \
-docker run -v $(pwd)/models:/app/models -v $(pwd)/data:/app/data model_fare_amount
+
+docker run -v $(pwd)/models:/app/models -v $(pwd)/data:/app/data model_fare_amount \
+
+Please note that the file located in data, which will be used to train the model, must have the following characteristics:
+
+### INFORMATION RELATED TO PERIOD
+
+    'Early Morning' : 1,
+    'Morning'       : 2,
+    'Noon'          : 3,
+    'Evening'       : 4,
+    'Night'         : 5,
+    'Late Night'    : 6.
+
+### INFORMATION RELATED TO MONTH
+
+    'January'       : 1, 
+    'February'      : 2, 
+    'March'         : 3, 
+    'April'         : 4,
+    'May'           : 5,
+    'June'          : 6,
+    'July'          : 7,
+    'August'        : 8,
+    'September'     : 9, 
+    'October'       : 10, 
+    'November'      : 11, 
+    'December'      : 12.
+
+### INFORMATION RELATED TO WEEK DAY
+
+    'Monday'        : 1,
+    'Tuesday'       : 2,
+    'Wednesday'     : 3,
+    'Thursday'      : 4,
+    'Friday'        : 5,
+    'Saturday'      : 6,
+    'Sunday'        : 7.
+
+### INFORMATION RELATED TO YEAR
+
+    2009            : 1,
+    2010            : 2,
+    2011            : 3,
+    2012            : 4,
+    2013            : 5,
+    2014            : 6,
+    2015            : 7.
+    

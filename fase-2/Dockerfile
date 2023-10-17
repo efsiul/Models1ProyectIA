@@ -1,5 +1,5 @@
 # Utiliza la imagen oficial de Python como base
-FROM python:3.9
+FROM python:3.10.9
 
 # Variables de entorno para evitar la salida de texto descriptivo
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -10,7 +10,8 @@ WORKDIR /app
 
 # Copiar archivos y directorios necesarios al contenedor
 COPY models/            /app
-COPY src/               /app
+COPY train.py           /app
+COPY predict.py         /app
 COPY data/              /app
 COPY requirements.txt   /app
 
@@ -21,4 +22,11 @@ RUN pip install -r requirements.txt
 EXPOSE 8080
 
 # Comando para ejecutar el script predict.py (ajusta el nombre del script y los argumentos según sea necesario)
-CMD ["python", "predict.py", "--input_file", "data/uber_test.csv","data/uber_train.csv", "--predictions_file", "predictions.csv"]
+
+# CMD ["python", "predict.py","--input_file", "data/uber_test.csv", "--predictions_file", "predictions.csv"]
+
+
+# Después de ejecutar train.py, ejecuta predict.py
+CMD ["python", "train.py"]
+
+CMD ["python",  "predict.py"]
