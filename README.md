@@ -117,6 +117,11 @@ The Dockerfile file, continues all the instructions for the container to run aft
 
 ![Alt text](image-6.png)
 
+To easily test the /predict endpoint, use tools like curl or httpie from the command line, or you can use a graphical interface like Swagger UI provided by FastAPI.
+
+you can test the /predict endpoint with curl from the command line:
+* curl -X POST "http://localhost:9000/predict" -H "accept: application/json" -H "Content-Type: multipart form-data" -F "file=@/ruta/del/archivo.csv"
+
 When opening the local direction in the browser: 9000/docs
 
 ![Alt text](image.png)
