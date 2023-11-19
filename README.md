@@ -18,12 +18,14 @@ Uber Fares Dataset \
 I based myself on the model built by Anjali Singh (anjali1510) \
 <https://www.kaggle.com/code/anjali1510/uber-fare-prediction>
 
-## Phase 1
+## PHASE 1
 
+---
 In the phase-1 folder, there are the files that in summary correspond to the selection of the dataset, the data analysis, the testing of different models and the saving of the selected model 'Gradient Boosting Regressor'.
 
-## Phase 2
+## PHASE 2
 
+---
 There is a set of folders and files where we can find,
 data: where files with a csv extension are saved, which are used to train the model and make predictions.
 
@@ -87,3 +89,48 @@ Please note that the file located in data, which will be used to train the model
     2013            : 5,
     2014            : 6,
     2015            : 7.
+
+## PHASE 3
+
+---
+In this phase of the project, an API Rest has been built with the help of the Python framework, FastApi, which in addition to allowing two Endpoint:
+**localhost:8000/predict**
+**localhost:8000/train**
+
+It is also possible to observe from its automatic documentation with Swagger: **localhost/8000/docs**, all the details offered by the endpoints.
+
+The structure of the project is as follows:
+![Alt text](image-1.png)
+
+The Apirest.py file is in charge of creating the API and giving access to the different endpoints,
+
+In the predict endpoints, a file with CSV extension is requested, where the data is loaded to generate the desired prediction, through the previously loaded model located in the Models folder.
+
+In the Endpoints Train, a file with CSV extension is entered, with which the model will be trained again and the PKL files will be saved in the Models folder.
+
+### Execute the server:
+
+The Dockerfile file, continues all the instructions for the container to run after entering the following commands:
+
+* **docker build -t phase3 .**
+* **docker run -p 9000:9000 phase3**
+
+![Alt text](image-6.png)
+
+When opening the local direction in the browser: 9000/docs
+
+![Alt text](image.png)
+
+In Docs, we can see that if we give it in the "Try It Out" button, it gives us the possibility of opening the file to which we want to predict
+
+![Alt text](image-2.png)
+
+![Alt text](image-3.png)
+
+![Alt text](image-4.png)
+
+Then it gives you in the Execute button and you will get the result of the prediction:
+
+![Alt text](image-5.png)
+
+The same process for Train.

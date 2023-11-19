@@ -1,5 +1,5 @@
 # Utiliza la imagen oficial de Python como base
-FROM python:3.10.9
+FROM python:3.11.6
 
 # Variables de entorno para evitar la salida de texto descriptivo
 ENV PYTHONDONTWRITEBYTECODE 1

@@ -1,0 +1,10 @@
+argparse
+loguru
+fastapi
+pandas
+pydantic
+python-multipart
+scipy
+scikit-learn
+seaborn
+uvicorn
